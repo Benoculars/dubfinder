@@ -11,6 +11,8 @@ just make sure to have [subfinder](https://github.com/projectdiscovery/subfinder
 ## TODO
 * optimize
 * better domain validation so output isn't so darned messy
+* use real db not txt files
+* flags
 
 ## whats with the name
 youre gonna be taking mad dubs with this script
