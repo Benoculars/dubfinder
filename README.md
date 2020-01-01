@@ -12,5 +12,5 @@ just make sure to have [subfinder](https://github.com/projectdiscovery/subfinder
 * optimize
 * better domain validation so output isn't so darned messy
 
-#### whats with the name
+### whats with the name
 youre gonna be taking mad dubs with this script
