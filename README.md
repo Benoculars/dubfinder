@@ -1,5 +1,5 @@
 # dubfinder
-an old janky bash wrapper for [subfinder](https://github.com/projectdiscovery/subfinder) to detect dangling CNAME's and other DNS tomfoolery (SERVFAIL). the name comes from all the dubs you're gonna be taking with this script.
+an old janky bash wrapper for [subfinder](https://github.com/projectdiscovery/subfinder) to detect dangling CNAME's and other DNS tomfoolery (SERVFAIL).
 
 ## features
 * built in support for ed's [poor man's recon setup](https://edoverflow.com/2018/the-poor-mans-monitoring-setup/)
@@ -11,3 +11,6 @@ just make sure to have [subfinder](https://github.com/projectdiscovery/subfinder
 ## TODO
 * optimize
 * better domain validation so output isn't so darned messy
+
+#### whats with the name
+youre gonna be taking mad dubs with this script
