@@ -1,5 +1,4 @@
 #!/bin/bash
-progv=1
 valid=()
 rescan=false
 sendalert=true
@@ -14,18 +13,17 @@ scand () {
 		if [[ $newdiff = *[!\ ]* ]]; then
 			printf "$(tput setaf 4)$(tput setab 7)new domains found$(tput sgr 0)\n$newdiff\n"
 			echo "$newdiff" >> $datafolder/$1.txt
-			sed -ir '/^$/d' $datafolder/$1.txt
-		fi
+ 		fi
 	else
 		echo "$(subfinder -silent -nW -d $1)" > "$datafolder/$1.txt"
 	fi
 	length=$(wc -l < $datafolder/$1.txt)
 	echo "scanning for hanging domains from $length subdomains..."
 	while read -r p; do
-		(( ++progv ))
 		if ! [[ $p == "" ]]; then
+		p=${p#.}
 			if [[ $(host $p) == *"NXDOMAIN"* ]] || [[ $(host $p) == *"SERVFAIL"* ]]; then
-				dug=$(dig +short $p)
+				dug=$(dig CNAME +short $p)
 				if [[ $dug == *[!\ ]* ]]; then
 					ab=${dug%?}
 					var=$(expr $ab : '.*\.\(.*\..*\)')
@@ -39,9 +37,6 @@ scand () {
 			fi
 		fi
    done < $datafolder/$1.txt
-if [[ $rescan = true ]]; then
-	rm $1.txt
-fi
 git commit -a --quiet -m "$msg" 
 git push --quiet
 printf "%s\n" "${valid[@]}"
