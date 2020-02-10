@@ -37,6 +37,9 @@ scand () {
 			fi
 		fi
    done < $datafolder/$1.txt
+   if [[ $rescan = false ]]; then
+	git add $datafolder/$1.txt
+   fi
 git commit -a --quiet -m "$msg" 
 git push --quiet
 printf "%s\n" "${valid[@]}"
